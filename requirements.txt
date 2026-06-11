@@ -1,0 +1,19 @@
+# Core LLM & Frameworks
+langchain==0.3.*
+langchain-openai==0.3.*
+openai>=1.0.0
+
+# Backend & Task Queue
+fastapi>=0.110.0
+uvicorn>=0.28.0
+redis>=5.0.0
+celery>=5.3.0
+
+# Environment Management
+python-dotenv>=1.0.0
+sqlalchemy
+python-jose[cryptography]
+passlib[bcrypt]
+tenacity
+python-multipart
+email-validator
