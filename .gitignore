@@ -1,4 +1,29 @@
+# Environment variables — NEVER commit
+.env
+.env.local
+.env.production
+
+# Python
 venv/
 __pycache__/
-.env
+*.pyc
+*.pyo
+.Python
+*.egg-info/
+dist/
+build/
+
+# Database
+*.db
+*.sqlite3
+
+# IDE
+.vscode/
+.idea/
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Logs
+*.log
