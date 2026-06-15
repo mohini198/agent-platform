@@ -211,6 +211,3 @@ GitHub: [@mohini198](https://github.com/mohini198)
 
 ---
 
-## 📄 License
-
-MIT License — feel free to use, modify and build on this.
