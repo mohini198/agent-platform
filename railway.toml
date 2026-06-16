@@ -1,5 +1,6 @@
 # =====================================================================
 # railway.toml — Railway deployment configuration
+# startCommand removed — Dockerfile's CMD handles startup instead
 # =====================================================================
 
 [build]
@@ -7,7 +8,6 @@ builder = "dockerfile"
 dockerfilePath = "Dockerfile"
 
 [deploy]
-startCommand = "uvicorn main_api:app --host 0.0.0.0 --port $PORT"
 restartPolicyType = "on_failure"
 restartPolicyMaxRetries = 3
 
