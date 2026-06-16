@@ -97,8 +97,13 @@ async def approve_task(thread_id: str, request: ApprovalRequest):
 @app.websocket("/ws/task")
 async def websocket_endpoint(websocket: WebSocket, token: str,
                               db: Session = Depends(get_db)):
-    user_data = decode_access_token(token)
-    user      = db.query(User).filter(User.id == user_data.user_id).first()
+    try:
+        user_data = decode_access_token(token)
+    except Exception as e:
+        print(f"❌ Token decode failed: {type(e).__name__}: {e}")
+        await websocket.close(code=1008)
+        return
+    user= db.query(User).filter(User.id == user_data.user_id).first()
     if not user or not user.is_active:
         await websocket.close(code=1008); return
 
