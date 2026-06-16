@@ -16,7 +16,7 @@ from models import Base, User, TaskRun, UserRegisterRequest, TokenResponse
 from auth import hash_password, verify_password, create_access_token, decode_access_token
 
 app = FastAPI(title="Autonomous Task Automation Server")
-app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True,
+app.add_middleware(CORSMiddleware, allow_origins=["https://agent-frontend-henna-pi.vercel.app"], allow_credentials=True,
                    allow_methods=["*"], allow_headers=["*"])
 Base.metadata.create_all(bind=engine)
 REDIS_URI = os.getenv("REDIS_URI", "redis://localhost:6379")
