@@ -16,7 +16,7 @@ from models import Base, User, TaskRun, UserRegisterRequest, TokenResponse
 from auth import hash_password, verify_password, create_access_token, decode_access_token
 
 app = FastAPI(title="Autonomous Task Automation Server")
-app.add_middleware(CORSMiddleware, allow_origins=["https://agent-frontend-henna-pi.vercel.app"], allow_credentials=True,
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True,
                    allow_methods=["*"], allow_headers=["*"])
 Base.metadata.create_all(bind=engine)
 REDIS_URI = os.getenv("REDIS_URL", os.getenv("REDIS_URI", "redis://localhost:6379"))
@@ -99,7 +99,7 @@ async def websocket_endpoint(websocket: WebSocket, token: str,
                               db: Session = Depends(get_db)):
     origin = websocket.headers.get("origin", "NO ORIGIN HEADER")
     print(f"🔍 WebSocket connection attempt from origin: {origin}")
-    
+
     try:
         user_data = decode_access_token(token)
     except Exception as e:
