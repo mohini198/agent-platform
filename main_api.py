@@ -97,6 +97,9 @@ async def approve_task(thread_id: str, request: ApprovalRequest):
 @app.websocket("/ws/task")
 async def websocket_endpoint(websocket: WebSocket, token: str,
                               db: Session = Depends(get_db)):
+    origin = websocket.headers.get("origin", "NO ORIGIN HEADER")
+    print(f"🔍 WebSocket connection attempt from origin: {origin}")
+    
     try:
         user_data = decode_access_token(token)
     except Exception as e:
