@@ -19,7 +19,7 @@ app = FastAPI(title="Autonomous Task Automation Server")
 app.add_middleware(CORSMiddleware, allow_origins=["https://agent-frontend-henna-pi.vercel.app"], allow_credentials=True,
                    allow_methods=["*"], allow_headers=["*"])
 Base.metadata.create_all(bind=engine)
-REDIS_URI = os.getenv("REDIS_URI", "redis://localhost:6379")
+REDIS_URI = os.getenv("REDIS_URL", os.getenv("REDIS_URI", "redis://localhost:6379"))
 
 # =====================================================================
 # PAUSE REGISTRY — stores asyncio Events + human decisions per thread
