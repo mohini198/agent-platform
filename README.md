@@ -11,8 +11,8 @@
 
 ## 🚀 Live Demo
 
-**Frontend:** [agent-os.vercel.app](https://agent-os.vercel.app) *(update after deploy)*  
-**API Docs:** [agent-os.railway.app/docs](https://agent-os.railway.app/docs) *(update after deploy)*
+**Backend API:** [agent-platform-production-a13b.up.railway.app/docs](https://agent-platform-production-a13b.up.railway.app/docs)  
+**Frontend:** *(coming soon — deploying to Vercel next)*
 
 ---
 
